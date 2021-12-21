@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: fooo
-        uses: creamangus/test-private-actions/demo@v1
+        uses: creamangus/test-common-actions/demo@v4
         with:
           who-to-greet: 'Angus Test'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
