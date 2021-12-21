@@ -1,3 +1,4 @@
+name: test workflow
 on: [push]
 
 jobs:
@@ -7,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: actions/test-common-actions@v1
+        uses: creamangus/test-common-actions@v1
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
