@@ -10,7 +10,7 @@ jobs:
       - id: fooo
         uses: creamangus/test-common-actions/demo@v4
         with:
-          who-to-greet: 'Angus Test'
+          who-to-greet: 'Angus'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
       - run: echo "Test end"
