@@ -7,7 +7,7 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v2
-      - id: foo
+      - id: fooo
         uses: creamangus/test-private-actions/demo@v1
         with:
           who-to-greet: 'Angus Test'
