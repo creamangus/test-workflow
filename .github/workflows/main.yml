@@ -6,12 +6,24 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - name: Checkout source code
       - uses: actions/checkout@v2
-      - id: fooo
-        uses: creamangus/test-common-actions/demo@v4
-        with:
-          who-to-greet: 'Angus'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+
+      - name: Check resule
         shell: bash
-      - run: echo "Test end"
-        shell: bash
+        run: |
+          DEPLOY_RESULT=""
+          if [ -f "deploy-result-app31.txt" ]; then
+            if [ `grep -c "Fail:" deploy-result-app31.txt` -ne '0' ]; then
+              DEPLOY_RESULT="App31 deploy failed;"
+            fi
+          fi
+          if [ -f "deploy-result-app32.txt" ]; then
+            if [ `grep -c "Fail:" deploy-result-app32.txt` -ne '0' ]; then
+              DEPLOY_RESULT=$DEPLOY_RESULT"App32 deploy failed;"
+            fi
+          fi
+          if [ -n "${DEPLOY_RESULT}" ]; then
+            echo "::error::${DEPLOY_RESULT}"
+            exit 1
+          fi
