@@ -25,4 +25,5 @@ jobs:
           fi
           if [ -n "${DEPLOY_RESULT}" ]; then
             echo "::error::${DEPLOY_RESULT}"
+            exit 1
           fi
