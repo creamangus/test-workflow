@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo $PWD
+echo "Path="$PWD
+echo "Hello"
 DEPLOY_RESULT=""
 if [ -f "../../deploy-result-app31.txt" ]; then
   echo "in app31"
