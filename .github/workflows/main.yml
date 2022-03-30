@@ -11,7 +11,7 @@ jobs:
 
       - name: Check resule
         shell: bash
-        run: chmod +x check-deploy-result.sh && check-deploy-result.sh
+        run: chmod +x check-deploy-result.sh && ./check-deploy-result.sh
 
       - name: Check File
         shell: bash
