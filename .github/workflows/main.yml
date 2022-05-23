@@ -5,7 +5,7 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     env:
-      ENV_CVP_DEPLOY_NUMBER: "cvp-common-service-$(date +%Y%m%d)"
+      ENV_CVP_DEPLOY_NUMBER: "cvp-common-service-$(date +%Y%m%d%H%M%S)"
     name: A job to say hello
     steps:
       - name: Checkout source code
@@ -21,6 +21,8 @@ jobs:
             echo "deploy-result-app32.txt not exists"
           fi
           echo "ENV_CVP_DEPLOY_NUMBER=${{ env.ENV_CVP_DEPLOY_NUMBER }}"
+          sleep 10
+          echo "ENV_CVP_DEPLOY_NUMBER2=${{ env.ENV_CVP_DEPLOY_NUMBER }}"
 
       - name: Check resule
         shell: bash
