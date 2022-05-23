@@ -4,10 +4,10 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    env:
-      ENV_CVP_DEPLOY_NUMBER: "cvp-common-service-$(date +%Y%m%d%H%M%S)"
     name: A job to say hello
     steps:
+      - name: Set current date as env variable
+        run: echo "ENV_CVP_DEPLOY_NUMBER::cvp-common-service-$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
       - name: Checkout source code
         uses: actions/checkout@v2
 
