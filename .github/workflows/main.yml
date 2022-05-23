@@ -11,10 +11,6 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Check resule
-        shell: bash
-        run: cd deployment/tt && chmod +x check-deploy-result.sh && ./check-deploy-result.sh
-
       - name: Check File
         shell: bash
         run: |
@@ -25,3 +21,7 @@ jobs:
             echo "deploy-result-app32.txt not exists"
           fi
           echo "ENV_CVP_DEPLOY_NUMBER=${{ env.ENV_CVP_DEPLOY_NUMBER }}"
+
+      - name: Check resule
+        shell: bash
+        run: cd deployment/tt && chmod +x check-deploy-result.sh && ./check-deploy-result.sh
