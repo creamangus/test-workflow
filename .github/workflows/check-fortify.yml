@@ -10,7 +10,4 @@ jobs:
         uses: actions/checkout@v2
   
       - name: Check fortify
-        run: |
-            [ -x "$(which FoDUpload)" ] && echo "FoDUpload found on path" \
-              && [ -x "$(which scancentral)" ] && echo "scancentral found on path" \
-              && [ -x "$(which FortifyVulnerabilityExporter)" ] && echo "FortifyVulnerabilityExporter found on path"
+        run: echo "$(which FoDUpload)" && echo "FoDUpload found on path" && echo "$(which scancentral)" && echo "scancentral found on path" && echo "$(which FortifyVulnerabilityExporter)" && echo "FortifyVulnerabilityExporter found on path"
