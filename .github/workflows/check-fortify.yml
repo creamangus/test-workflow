@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+
+name: Test-Fortify
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check-out source code
+        uses: actions/checkout@v2
+  
+      - name: Check fortify
+        run: |
+            [ -x "$(which FoDUpload)" ] && echo "FoDUpload found on path" \
+              && [ -x "$(which scancentral)" ] && echo "scancentral found on path" \
+              && [ -x "$(which FortifyVulnerabilityExporter)" ] && echo "FortifyVulnerabilityExporter found on path"
